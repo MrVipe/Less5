@@ -22,7 +22,7 @@ namespace Less5
 
         static void GetNewPath(int lvl, string oldPath)
         {
-            File.AppendAllText("recurDir.txt", oldPath);// Записываем директорию
+            File.AppendAllText("recurDir.txt", oldPath + Environment.NewLine);// Записываем директорию
             string[] getDir = Directory.GetDirectories(oldPath); //получаем директорию
             string[] getFile =  Directory.GetFiles(oldPath).Select(Path.GetFileName).ToArray(); //получаем файлы в тек. директории
             File.AppendAllLines("recurDir.txt", getFile); //записываем файлы
