@@ -11,9 +11,8 @@ namespace Less5
     {
         static void Main(string[] args)
         {
-            File.WriteAllText("newtext.txt", Console.ReadLine());
-
-            Console.WriteLine(File.ReadAllText("newtext.txt"));
+            File.AppendAllText("startup.txt", Convert.ToString(DateTime.Now) + Environment.NewLine);
+            Console.WriteLine(File.ReadAllText("startup.txt"));
             Console.ReadKey();
         }
     }
