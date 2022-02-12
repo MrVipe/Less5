@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Less5
 {
@@ -11,9 +12,19 @@ namespace Less5
     {
         static void Main(string[] args)
         {
-            File.AppendAllText("startup.txt", Convert.ToString(DateTime.Now) + Environment.NewLine);
-            Console.WriteLine(File.ReadAllText("startup.txt"));
+
+            string[] stringByte;
+            stringByte = Console.ReadLine().Split(' ').ToArray();
+            byte[] massByte = new byte[stringByte.Length];
+
+            for (int i = 0; i < stringByte.Length; i++)
+            {
+                massByte[i] = Convert.ToByte(stringByte[i]);
+            }
+
+            File.WriteAllBytes("cifr.bin", massByte);
             Console.ReadKey();
+
         }
     }
 }
